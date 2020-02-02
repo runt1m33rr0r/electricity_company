@@ -12,7 +12,6 @@ public class Client {
     private String lastName;
     private String email;
     private String password;
-
     @OneToMany
     private Collection<Report> reports;
 

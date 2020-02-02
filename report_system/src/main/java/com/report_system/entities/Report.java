@@ -12,10 +12,8 @@ public class Report {
     private String description;
     private Date published;
     private ReportStatus status;
-
     @ManyToOne
     private Team assignedTeam;
-
     @ManyToOne
     private Client client;
 

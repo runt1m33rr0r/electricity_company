@@ -11,7 +11,6 @@ public class Employee {
     private String lastName;
     private String email;
     private String password;
-
     @ManyToOne
     private Team team;
 

@@ -9,10 +9,8 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-
     @OneToMany
     private Collection<Employee> members;
-
     @OneToMany
     private Collection<Report> assignedReports;
 
