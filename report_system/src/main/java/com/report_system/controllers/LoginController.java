@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController {
-    @RequestMapping("/user-login")
+    @RequestMapping("/login")
     public String showLogin(Model model) {
         String title = "Login page";
         model.addAttribute("title", title);
