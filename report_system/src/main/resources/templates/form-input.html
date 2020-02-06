@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html data-th-fragment="input (inputType, placeholder, label, id)">
+    <body>
+        <div class="form-group">
+            <label data-th-for="${id}" data-th-text="${label}"></label>
+            <input
+                data-th-type="${inputType}"
+                data-th-id="${id}"
+                data-th-placeholder="${placeholder}"
+                class="form-control"
+            />
+        </div>
+    </body>
+</html>

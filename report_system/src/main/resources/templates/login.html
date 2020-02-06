@@ -1,8 +1,23 @@
-<!doctype html>
-<html lang="en" data-th-replace="~{base::layout(~{::#content})}">
+<!DOCTYPE html>
+<html data-th-replace="~{base::layout(~{::#content})}">
     <body>
-        <section id="content">
-            <h2>login content</h2>
+        <section id="content" class="d-flex flex-column justify-content-center align-items-center">
+            <h2 class="pb-4 flex-item">Log in</h2>
+            <form action="@{~/login}" class="flex-item">
+                <div
+                    data-th-replace="~{form-input::input('text', 'User', 'First name', 'firstName')}"
+                ></div>
+                <div
+                    data-th-replace="~{form-input::input('text', 'Name', 'Last name', 'lastName')}"
+                ></div>
+                <div
+                    data-th-replace="~{form-input::input('email', 'email@example.com', 'Email address', 'email')}"
+                ></div>
+                <div
+                    data-th-replace="~{form-input::input('password', '', 'Password', 'password')}"
+                ></div>
+                <button type="submit" class="btn btn-primary w-100">Log in</button>
+            </form>
         </section>
     </body>
 </html>
