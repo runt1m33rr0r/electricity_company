@@ -5,18 +5,12 @@
             <h2 class="pb-4 flex-item">Log in</h2>
             <form action="@{~/login}" class="flex-item">
                 <div
-                    data-th-replace="~{form-input::input('text', 'User', 'First name', 'firstName')}"
+                    data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
                 ></div>
                 <div
-                    data-th-replace="~{form-input::input('text', 'Name', 'Last name', 'lastName')}"
+                    data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
                 ></div>
-                <div
-                    data-th-replace="~{form-input::input('email', 'email@example.com', 'Email address', 'email')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-input::input('password', '', 'Password', 'password')}"
-                ></div>
-                <button type="submit" class="btn btn-primary w-100">Log in</button>
+                <button data-th-replace="~{form-elements::button('Log in')}"></button>
             </form>
         </section>
     </body>

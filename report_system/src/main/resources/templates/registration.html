@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html
+    data-th-replace="~{base::layout(~{::#content})}"
+    data-th-fragment="register (page, title, action)"
+>
+    <body>
+        <section id="content" class="d-flex flex-column justify-content-center align-items-center">
+            <h2 class="pb-4 text-center flex-item" data-th-text="${title}"></h2>
+            <form data-th-action="${action}" class="flex-item">
+                <div data-th-replace="${page}"></div>
+
+                <button data-th-replace="~{form-elements::button('Register')}"></button>
+            </form>
+        </section>
+    </body>
+</html>

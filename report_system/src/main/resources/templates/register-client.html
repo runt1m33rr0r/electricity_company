@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html data-th-replace="~{registration::register(~{::#form}, 'Register a client', @{~/clients})}">
+    <body id="form">
+        <div
+            data-th-replace="~{form-elements::input('text', 'User', 'First name', 'firstName')}"
+        ></div>
+        <div
+            data-th-replace="~{form-elements::input('text', 'Name', 'Last name', 'lastName')}"
+        ></div>
+        <div
+            data-th-replace="~{form-elements::input('text', 'Some address', 'Address', 'address')}"
+        ></div>
+        <div
+            data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
+        ></div>
+        <div
+            data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
+        ></div>
+    </body>
+</html>

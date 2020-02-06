@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html data-th-fragment="input (inputType, placeholder, label, id)">
+<html>
     <body>
-        <div class="form-group">
+        <div class="form-group" data-th-fragment="input (inputType, placeholder, label, id)">
             <label data-th-for="${id}" data-th-text="${label}"></label>
             <input
                 data-th-type="${inputType}"
@@ -10,5 +10,12 @@
                 class="form-control"
             />
         </div>
+
+        <button
+            type="submit"
+            class="btn btn-primary w-100"
+            data-th-fragment="button (text)"
+            data-th-text="${text}"
+        ></button>
     </body>
 </html>
