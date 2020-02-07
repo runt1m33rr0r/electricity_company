@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html
-    data-th-replace="~{base::layout(~{::#content})}"
-    data-th-fragment="register (page, title, action)"
+    data-th-replace="~{base-centered::centered(~{::body})}"
+    data-th-fragment="register(page, title, action)"
 >
     <body>
-        <section id="content" class="d-flex flex-column justify-content-center align-items-center">
-            <h2 class="pb-4 text-center flex-item" data-th-text="${title}"></h2>
-            <form data-th-action="${action}" class="flex-item">
-                <div
-                    data-th-replace="~{form-elements::input('text', 'User', 'First name', 'firstName')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-elements::input('text', 'Name', 'Last name', 'lastName')}"
-                ></div>
+        <h2 class="pb-4 text-center flex-item" data-th-text="${title}"></h2>
+        <form data-th-action="${action}" class="flex-item">
+            <div
+                data-th-replace="~{form-elements::input('text', 'User', 'First name', 'firstName')}"
+            ></div>
+            <div
+                data-th-replace="~{form-elements::input('text', 'Name', 'Last name', 'lastName')}"
+            ></div>
 
-                <div data-th-replace="${page}"></div>
+            <div data-th-replace="${page}"></div>
 
-                <div
-                    data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-elements::input('email', '', 'Repeat e-mail', 'repeatEmail')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-elements::input('password', '', 'Repeat password', 'repeatPassword')}"
-                ></div>
+            <div
+                data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
+            ></div>
+            <div
+                data-th-replace="~{form-elements::input('email', '', 'Repeat e-mail', 'repeatEmail')}"
+            ></div>
+            <div
+                data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
+            ></div>
+            <div
+                data-th-replace="~{form-elements::input('password', '', 'Repeat password', 'repeatPassword')}"
+            ></div>
 
-                <button data-th-replace="~{form-elements::button('Register')}"></button>
-            </form>
-        </section>
+            <button data-th-replace="~{form-elements::button('Register')}"></button>
+        </form>
     </body>
 </html>
