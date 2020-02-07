@@ -1,21 +1,9 @@
 <!DOCTYPE html>
-<html
-    data-th-replace="~{base::layout(~{::#content})}"
-    data-th-fragment="register (page, title, action)"
->
+<html data-th-replace="~{base::layout(~{::#content})}">
     <body>
         <section id="content" class="d-flex flex-column justify-content-center align-items-center">
-            <h2 class="pb-4 text-center flex-item" data-th-text="${title}"></h2>
-            <form data-th-action="${action}" class="flex-item">
-                <div
-                    data-th-replace="~{form-elements::input('text', 'User', 'First name', 'firstName')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-elements::input('text', 'Name', 'Last name', 'lastName')}"
-                ></div>
-
-                <div data-th-replace="${page}"></div>
-
+            <h2 class="pb-4 text-center flex-item">Edit profile</h2>
+            <form data-th-action="@{~/profile}" class="flex-item">
                 <div
                     data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
                 ></div>
@@ -29,7 +17,7 @@
                     data-th-replace="~{form-elements::input('password', '', 'Repeat password', 'repeatPassword')}"
                 ></div>
 
-                <button data-th-replace="~{form-elements::button('Register')}"></button>
+                <button data-th-replace="~{form-elements::button('Submit')}"></button>
             </form>
         </section>
     </body>
