@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html data-th-replace="~{base::layout(~{::#content})}">
+<html data-th-replace="~{base-centered::centered(data=~{::body})}">
     <body>
-        <section id="content" class="d-flex flex-column justify-content-center align-items-center">
-            <h2 class="pb-4 text-center flex-item">Edit profile</h2>
-            <form data-th-action="@{~/profile}" class="flex-item">
-                <div
-                    data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-elements::input('email', '', 'Repeat e-mail', 'repeatEmail')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
-                ></div>
-                <div
-                    data-th-replace="~{form-elements::input('password', '', 'Repeat password', 'repeatPassword')}"
-                ></div>
+        <h2 class="pb-4 text-center flex-item">Edit profile</h2>
+        <form data-th-action="@{~/profile}" class="flex-item">
+            <div
+                data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
+            ></div>
+            <div
+                data-th-replace="~{form-elements::input('email', '', 'Repeat e-mail', 'repeatEmail')}"
+            ></div>
+            <div
+                data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
+            ></div>
+            <div
+                data-th-replace="~{form-elements::input('password', '', 'Repeat password', 'repeatPassword')}"
+            ></div>
 
-                <button data-th-replace="~{form-elements::button('Submit')}"></button>
-            </form>
-        </section>
+            <button data-th-replace="~{form-elements::button('Submit')}"></button>
+        </form>
     </body>
 </html>

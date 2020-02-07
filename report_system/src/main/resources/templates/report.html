@@ -1,6 +1,24 @@
 <!DOCTYPE html>
-<html data-th-replace="~{base-centered::centered(~{::body})}">
+<html data-th-replace="~{base-centered::centered(data=~{::body}, styles=~{::head})}">
+    <head>
+        <link rel="stylesheet" data-th-href="@{/css/report-style.css}" />
+    </head>
     <body>
-        <h2 class="pb-4 flex-item">Report</h2>
+        <h2 class="pb-4 flex-item">Write a report</h2>
+        <form action="@{~/report}" class="flex-item">
+            <div
+                data-th-replace="~{form-elements::input(
+                    'text', 
+                    'Some address', 
+                    'Problem location', 
+                    'address')}"
+            ></div>
+            <div class="form-group">
+                <label for="description">Report description</label>
+                <textarea class="form-control" id="description" rows="5"></textarea>
+            </div>
+
+            <button data-th-replace="~{form-elements::button('Submit')}"></button>
+        </form>
     </body>
 </html>

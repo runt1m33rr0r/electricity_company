@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" data-th-fragment="layout(content)">
-    <head data-th-fragment="head">
+<html lang="en" data-th-fragment="layout">
+    <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link
@@ -10,6 +10,8 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" data-th-href="@{/css/style.css}" />
+
+        <div data-th-replace="${styles} ?: _"></div>
 
         <title>Report system</title>
     </head>
@@ -79,5 +81,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"
         ></script>
+
+        <div data-th-replace="${scripts} ?: _"></div>
     </body>
 </html>

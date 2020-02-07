@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html data-th-replace="~{base::layout(~{::#content})}" data-th-fragment="centered(data)">
+<html
+    data-th-fragment="centered"
+    data-th-replace="~{base::layout(
+        content=~{::#content}, 
+        scripts=${scripts} ?: _, 
+        styles=${styles} ?: _)}"
+>
     <body>
         <section id="content" class="d-flex flex-column justify-content-center align-items-center">
             <div data-th-replace="${data}"></div>
