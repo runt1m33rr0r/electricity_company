@@ -30,24 +30,21 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li data-th-replace="base-elements::navLink(@{~/report}, 'Create report')"></li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-th-href="@{~/reports}">View reports</a>
-                    </li>
+                    <li data-th-replace="base-elements::navLink(@{~/reports}, 'View reports')"></li>
                     <li
                         data-th-replace="base-elements::navDropdown(
                             urls=${ {'/clients/register', '/employees/register'} }, 
                             names=${ {'Client', 'Employee'} }, 
                             text='Register')"
                     ></li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-th-href="@{~/teams}">Manage teams</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-th-href="@{~/employees}">Manage employees</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-th-href="@{~/clients}">Manage clients</a>
-                    </li>
+                    <li data-th-replace="base-elements::navLink(@{~/teams}, 'Manage teams')"></li>
+                    <li
+                        data-th-replace="base-elements::navLink(@{~/employees}, 'Manage employees')"
+                    ></li>
+                    <li
+                        data-th-replace="base-elements::navLink(@{~/clients}, 'Manage clients')"
+                    ></li>
+                    <li data-th-replace="base-elements::navLink(@{~/team}, 'My team')"></li>
                 </ul>
 
                 <ul class="navbar-nav">
