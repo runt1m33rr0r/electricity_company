@@ -44,7 +44,12 @@
                     <li
                         data-th-replace="base-elements::navLink(@{~/clients}, 'Manage clients')"
                     ></li>
-                    <li data-th-replace="base-elements::navLink(@{~/team}, 'My team')"></li>
+                    <li
+                        data-th-replace="base-elements::navDropdown(
+                            urls=${ {'/team', '/team/reports'} }, 
+                            names=${ {'Members', 'Reports'} }, 
+                            text='My team')"
+                    ></li>
                 </ul>
 
                 <ul class="navbar-nav">

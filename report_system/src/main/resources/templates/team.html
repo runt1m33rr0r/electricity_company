@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html data-th-replace="~{base-centered::centered(data=~{::body}, styles=~{::head})}">
+    <head>
+        <link rel="stylesheet" data-th-href="@{/css/dark-modal.css}" />
+    </head>
+    <body>
+        <h2 class="pb-4">Team name</h2>
+
+        <h5>Team members:</h5>
+        <ul class="list-group mt-3">
+            <li data-th-replace="~{base-elements::listItem(~{::#listItemContent})}">
+                <div id="listItemContent">
+                    Some Name
+                </div>
+            </li>
+        </ul>
+    </body>
+</html>

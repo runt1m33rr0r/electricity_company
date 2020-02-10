@@ -9,4 +9,14 @@ public class TeamsController {
     public String showTeamsManagement() {
         return "manage-teams";
     }
+
+    @RequestMapping("/team")
+    public String showTeam() {
+        return "team";
+    }
+
+    @RequestMapping("/team/reports")
+    public String showTeamReports() {
+        return "team-reports";
+    }
 }
