@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html data-th-replace="~{base-centered::centered(data=~{::body})}">
     <body>
-        <h2 class="pb-4 text-center flex-item">Edit profile</h2>
-        <form data-th-action="@{~/profile}" class="flex-item">
+        <h2 class="pb-4 text-center">Edit profile</h2>
+        <form data-th-action="@{~/profile}">
             <div
                 data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
             ></div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html data-th-replace="~{base-centered::centered(data=~{::body}, styles=~{::head})}">
+    <head>
+        <link rel="stylesheet" data-th-href="@{/css/dark-modal.css}" />
+    </head>
+    <body>
+        <h2 class="pb-4">Manage employees</h2>
+
+        <form action="@{~/employees/id}">
+            <div
+                data-th-replace="~{form-elements::input('text', 'Some employee', 'Employee name', 'employee')}"
+            ></div>
+            <button data-th-replace="~{form-elements::button('Search')}"></button>
+        </form>
+
+        <ul class="list-group mt-3">
+            <li data-th-replace="~{base-elements::listItem(~{::#listItemContent})}">
+                <div id="listItemContent">
+                    Some Name
+                    <button
+                        type="button"
+                        class="ml-2 btn btn-danger"
+                        data-target="#deleteModal"
+                        data-toggle="modal"
+                    >
+                        Fire
+                    </button>
+                </div>
+            </li>
+        </ul>
+
+        <div
+            data-th-replace="~{base-elements::darkModal(
+                ~{::#deleteModalTitle}, 
+                ~{::#deleteModalBody}, 
+                ~{::#deleteModalFooter}, 
+                'deleteModal')}"
+        >
+            <h5 id="deleteModalTitle">
+                Some Name
+            </h5>
+            <div id="deleteModalBody">
+                Are you sure you want to fire Some Name?
+            </div>
+            <div id="deleteModalFooter">
+                <button type="button" class="ml-2 btn btn-danger">Yes</button>
+            </div>
+        </div>
+    </body>
+</html>

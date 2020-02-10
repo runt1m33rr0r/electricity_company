@@ -4,8 +4,8 @@
     data-th-fragment="register(page, title, action)"
 >
     <body>
-        <h2 class="pb-4 text-center flex-item" data-th-text="${title}"></h2>
-        <form data-th-action="${action}" class="flex-item">
+        <h2 class="pb-4 text-center" data-th-text="${title}"></h2>
+        <form data-th-action="${action}">
             <div
                 data-th-replace="~{form-elements::input('text', 'User', 'First name', 'firstName')}"
             ></div>

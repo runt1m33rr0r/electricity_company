@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class TeamsController {
-    @RequestMapping("/teams")
-    public String showTeamsManagement() {
-        return "manage-teams";
+public class EmployeesController {
+    @RequestMapping("/employees")
+    public String showEmployeesManagement() {
+        return "manage-employees";
     }
 }

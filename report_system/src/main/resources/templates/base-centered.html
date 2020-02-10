@@ -7,8 +7,8 @@
         styles=${styles} ?: _)}"
 >
     <body>
-        <section id="content" class="d-flex flex-column justify-content-center align-items-center">
-            <div data-th-replace="${data}"></div>
+        <section id="content" class="d-flex flex-column">
+            <div class="center-flex-item" data-th-include="${data}"></div>
         </section>
     </body>
 </html>

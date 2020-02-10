@@ -14,6 +14,6 @@ body {
     padding-top: 56px;
 }
 
-.flex-item {
-    min-height: 0;
+.center-flex-item {
+    margin: auto;
 }
