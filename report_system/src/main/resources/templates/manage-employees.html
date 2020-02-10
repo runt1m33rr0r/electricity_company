@@ -19,6 +19,14 @@
                     Some Name
                     <button
                         type="button"
+                        class="ml-2 btn btn-primary"
+                        data-target="#editModal"
+                        data-toggle="modal"
+                    >
+                        Edit
+                    </button>
+                    <button
+                        type="button"
                         class="ml-2 btn btn-danger"
                         data-target="#deleteModal"
                         data-toggle="modal"
@@ -28,6 +36,33 @@
                 </div>
             </li>
         </ul>
+
+        <div
+            data-th-replace="~{base-elements::darkModal(
+                ~{::#editModalTitle}, 
+                ~{::#editModalBody}, 
+                ~{::#editModalFooter}, 
+                'editModal')}"
+        >
+            <h5 id="editModalTitle">
+                Some Name
+            </h5>
+            <div id="editModalBody">
+                <div class="form-group">
+                    <label for="teamSelect">Change employee's team</label>
+                    <select class="form-control" id="teamSelect">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div id="editModalFooter">
+                <button type="button" class="ml-2 btn btn-primary">Save</button>
+            </div>
+        </div>
 
         <div
             data-th-replace="~{base-elements::darkModal(
