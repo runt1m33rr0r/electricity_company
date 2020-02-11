@@ -30,7 +30,12 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li data-th-replace="base-elements::navLink(@{~/report}, 'Create report')"></li>
-                    <li data-th-replace="base-elements::navLink(@{~/reports}, 'View reports')"></li>
+                    <li
+                        data-th-replace="base-elements::navDropdown(
+                            urls=${ {'/reports', '/team/reports', '/employee/reports'} }, 
+                            names=${ {'All', 'My team reports', 'My reports'} }, 
+                            text='View reports')"
+                    ></li>
                     <li
                         data-th-replace="base-elements::navDropdown(
                             urls=${ {'/clients/register', '/employees/register'} }, 
@@ -44,12 +49,7 @@
                     <li
                         data-th-replace="base-elements::navLink(@{~/clients}, 'Manage clients')"
                     ></li>
-                    <li
-                        data-th-replace="base-elements::navDropdown(
-                            urls=${ {'/team', '/team/reports'} }, 
-                            names=${ {'Members', 'Reports'} }, 
-                            text='My team')"
-                    ></li>
+                    <li data-th-replace="base-elements::navLink(@{~/team}, 'My team')"></li>
                 </ul>
 
                 <ul class="navbar-nav">

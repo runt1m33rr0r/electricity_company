@@ -9,4 +9,9 @@ public class EmployeesController {
     public String showEmployeesManagement() {
         return "manage-employees";
     }
+
+    @RequestMapping("/employee/reports")
+    public String showEmployeeReports() {
+        return "employee-reports";
+    }
 }
