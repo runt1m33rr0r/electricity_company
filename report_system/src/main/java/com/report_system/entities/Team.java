@@ -1,6 +1,8 @@
 package com.report_system.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+
 import java.util.Collection;
 
 @Entity
@@ -8,6 +10,7 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Size(min = 3, max = 20)
     private String name;
     @OneToMany
     private Collection<Employee> members;

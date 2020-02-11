@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="form-group" data-th-fragment="input(inputType, placeholder, label, id)">
-            <label data-th-for="${id}" data-th-text="${label}"></label>
+        <div
+            class="form-group"
+            data-th-fragment="input(
+                inputType, 
+                placeholder, 
+                label, 
+                name,
+                invalidMessage,
+                isValid)"
+        >
+            <label data-th-for="${name}" data-th-text="${label}"></label>
             <input
                 data-th-type="${inputType}"
-                data-th-id="${id}"
+                data-th-id="${name}"
                 data-th-placeholder="${placeholder}"
+                data-th-name="${name}"
+                data-th-classappend="not ${isValid} ? is-invalid"
                 class="form-control"
             />
+            <div class="invalid-feedback" data-th-text="${invalidMessage}"></div>
         </div>
 
         <button

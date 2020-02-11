@@ -5,9 +5,15 @@
     </head>
     <body>
         <h2 class="pb-4 flex-item">Manage teams</h2>
-        <form action="@{~/teams}" class="flex-item">
+        <form data-th-action="@{~/teams}" data-th-object="${team}" method="POST" class="flex-item">
             <div
-                data-th-replace="~{form-elements::input('text', 'Some team', 'Team name', 'team')}"
+                data-th-replace="~{form-elements::input(
+                    'text', 
+                    'Some team', 
+                    'Team name', 
+                    'name',
+                    'Invalid team name!',
+                    ${not #fields.hasErrors()})}"
             ></div>
             <button data-th-replace="~{form-elements::button('Add team')}"></button>
         </form>
@@ -66,7 +72,13 @@
             </h5>
             <div id="editModalBody">
                 <div
-                    data-th-replace="~{form-elements::input('text', 'Some team', 'Team name', 'teamName')}"
+                    data-th-replace="~{form-elements::input(
+                        'text', 
+                        'Some team', 
+                        'Team name', 
+                        'teamName', 
+                        '', 
+                        true)}"
                 ></div>
             </div>
             <div id="editModalFooter">

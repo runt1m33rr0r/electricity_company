@@ -12,5 +12,5 @@ $(document).ready(function() {
         $(".notification").toast("show");
     }
 
-    notify("You have a new assignment!");
+    // notify("You have a new assignment!");
 });
