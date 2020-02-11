@@ -32,8 +32,8 @@
                     <li data-th-replace="base-elements::navLink(@{~/report}, 'Create report')"></li>
                     <li
                         data-th-replace="base-elements::navDropdown(
-                            urls=${ {'/reports', '/team/reports', '/employee/reports'} }, 
-                            names=${ {'All', 'My team reports', 'My reports'} }, 
+                            urls=${ {'/reports', '/team/reports', '/employee/reports', '/employee/assigned'} }, 
+                            names=${ {'All', 'My team reports', 'My reports', 'My assigned reports'} }, 
                             text='View reports')"
                     ></li>
                     <li
@@ -66,7 +66,28 @@
                 </ul>
             </div>
         </nav>
+
         <section id="content" data-th-replace="${content}"></section>
+
+        <div id="notifications">
+            <div
+                id="templateNotification"
+                class="toast text-body"
+                role="alert"
+                data-autohide="false"
+            >
+                <div class="toast-header">
+                    <strong class="mr-auto toast-title">title</strong>
+                    <small class="text-muted toast-time ml-2">when</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    <a href="/employee/assigned">Open assignments</a>
+                </div>
+            </div>
+        </div>
 
         <script
             src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -83,6 +104,7 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"
         ></script>
+        <script data-th-src="@{/scripts/main.js}"></script>
 
         <div data-th-replace="${scripts} ?: _"></div>
     </body>

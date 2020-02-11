@@ -17,3 +17,11 @@ body {
 .center-flex-item {
     margin: auto;
 }
+
+#notifications {
+    display: block;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}

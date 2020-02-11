@@ -14,4 +14,9 @@ public class EmployeesController {
     public String showEmployeeReports() {
         return "employee-reports";
     }
+
+    @RequestMapping("/employee/assigned")
+    public String showAssignedEmployeeReports() {
+        return "assigned-reports";
+    }
 }
