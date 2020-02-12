@@ -3,7 +3,7 @@ package com.report_system.controllers;
 import javax.validation.Valid;
 
 import com.report_system.entities.Team;
-import com.report_system.services.TeamService;
+import com.report_system.services.contracts.ITeamService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class TeamsController {
+public class TeamController {
     @Autowired
-    private TeamService teamService;
+    private ITeamService teamService;
 
     @GetMapping("/teams")
     public String showTeamsManagement(Team team) {
