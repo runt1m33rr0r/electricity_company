@@ -2,7 +2,11 @@
 <html data-th-replace="~{registration::register(~{::#form}, 'Register a client', @{~/clients})}">
     <body id="form">
         <div
-            data-th-replace="~{form-elements::input('text', 'Some address', 'Address', 'address')}"
+            data-th-replace="~{form-elements::input(
+                inputType='text', 
+                placeholder='Some address', 
+                label='Address', 
+                name='address')}"
         ></div>
     </body>
 </html>

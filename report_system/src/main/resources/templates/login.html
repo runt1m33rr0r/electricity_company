@@ -4,10 +4,18 @@
         <h2 class="pb-4">Log in</h2>
         <form action="@{~/login}">
             <div
-                data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='email', 
+                    placeholder='email@example.com', 
+                    label='Email address', 
+                    name='email')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='password', 
+                    placeholder='', 
+                    label='Password', 
+                    name='password')}"
             ></div>
             <button data-th-replace="~{form-elements::button('Log in')}"></button>
         </form>

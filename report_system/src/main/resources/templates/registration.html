@@ -7,25 +7,49 @@
         <h2 class="pb-4 text-center" data-th-text="${title}"></h2>
         <form data-th-action="${action}">
             <div
-                data-th-replace="~{form-elements::input('text', 'User', 'First name', 'firstName')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='text', 
+                    placeholder='User', 
+                    label='First name', 
+                    name='firstName')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input('text', 'Name', 'Last name', 'lastName')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='text', 
+                    placeholder='Name', 
+                    label='Last name', 
+                    name='lastName')}"
             ></div>
 
             <div data-th-replace="${page}"></div>
 
             <div
-                data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='email', 
+                    placeholder='email@example.com', 
+                    label='Email address', 
+                    name='email')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input('email', '', 'Repeat e-mail', 'repeatEmail')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='email', 
+                    placeholder='', 
+                    label='Repeat e-mail', 
+                    name='repeatEmail')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='password', 
+                    placeholder='', 
+                    label='Password', 
+                    name='password')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input('password', '', 'Repeat password', 'repeatPassword')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='password', 
+                    placeholder='', 
+                    label='Repeat password', 
+                    name='repeatPassword')}"
             ></div>
 
             <button data-th-replace="~{form-elements::button('Register')}"></button>

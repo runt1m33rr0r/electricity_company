@@ -51,5 +51,18 @@
             class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center"
             data-th-include="${content}"
         ></li>
+
+        <div
+            class="form-group"
+            data-th-fragment="input(someType, someId, someLabel, somePlaceholder)"
+        >
+            <label data-th-for="${someId}" data-th-text="${someLabel}"></label>
+            <input
+                data-th-type="${someType}"
+                data-th-id="${someId}"
+                data-th-placeholder="${somePlaceholder}"
+                class="form-control"
+            />
+        </div>
     </body>
 </html>

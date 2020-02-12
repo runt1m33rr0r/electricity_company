@@ -4,16 +4,32 @@
         <h2 class="pb-4 text-center">Edit profile</h2>
         <form data-th-action="@{~/profile}">
             <div
-                data-th-replace="~{form-elements::input('email', 'email@example.com', 'Email address', 'email')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='email', 
+                    placeholder='email@example.com', 
+                    label='Email address', 
+                    name='email')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input('email', '', 'Repeat e-mail', 'repeatEmail')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='email', 
+                    placeholder='', 
+                    label='Repeat e-mail', 
+                    name='repeatEmail')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input('password', '', 'Password', 'password')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='password', 
+                    placeholder='', 
+                    label='Password', 
+                    name='password')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input('password', '', 'Repeat password', 'repeatPassword')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='password', 
+                    placeholder='', 
+                    label='Repeat password', 
+                    name='repeatPassword')}"
             ></div>
 
             <button data-th-replace="~{form-elements::button('Submit')}"></button>

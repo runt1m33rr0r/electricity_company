@@ -8,10 +8,10 @@
         <form action="@{~/report}">
             <div
                 data-th-replace="~{form-elements::input(
-                    'text', 
-                    'Some address', 
-                    'Problem location', 
-                    'address')}"
+                    inputType='text', 
+                    placeholder='Some address', 
+                    label='Problem location', 
+                    name='address')}"
             ></div>
             <div class="form-group">
                 <label for="description">Report description</label>

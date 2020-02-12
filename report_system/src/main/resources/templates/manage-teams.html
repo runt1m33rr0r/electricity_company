@@ -7,13 +7,13 @@
         <h2 class="pb-4 flex-item">Manage teams</h2>
         <form data-th-action="@{~/teams}" data-th-object="${team}" method="POST" class="flex-item">
             <div
-                data-th-replace="~{form-elements::input(
-                    'text', 
-                    'Some team', 
-                    'Team name', 
-                    'name',
-                    'Invalid team name!',
-                    ${not #fields.hasErrors()})}"
+                data-th-replace="~{form-elements::validatedInput(
+                    name='name',
+                    type='text',
+                    label='Team name',
+                    placeholder='Some team',
+                    invalidMessage='Invalid team name!',
+                    isValid=${not #fields.hasErrors('name')})}"
             ></div>
             <button data-th-replace="~{form-elements::button('Add team')}"></button>
         </form>
@@ -72,13 +72,11 @@
             </h5>
             <div id="editModalBody">
                 <div
-                    data-th-replace="~{form-elements::input(
+                    data-th-replace="base-elements::input(
                         'text', 
-                        'Some team', 
-                        'Team name', 
-                        'teamName', 
-                        '', 
-                        true)}"
+                        'editTeam', 
+                        'New team name', 
+                        'Some name')"
                 ></div>
             </div>
             <div id="editModalFooter">

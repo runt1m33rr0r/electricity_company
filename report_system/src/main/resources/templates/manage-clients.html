@@ -8,7 +8,11 @@
 
         <form action="@{~/employees/id}">
             <div
-                data-th-replace="~{form-elements::input('text', 'Some client', 'Client name', 'client')}"
+                data-th-replace="~{form-elements::input(
+                    inputType='text', 
+                    placeholder='Some client', 
+                    label='Client name', 
+                    name='client')}"
             ></div>
             <button data-th-replace="~{form-elements::button('Search')}"></button>
         </form>
