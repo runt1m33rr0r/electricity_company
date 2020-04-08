@@ -1,4 +1,4 @@
-package com.report_system;
+package com.electricity_company;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
