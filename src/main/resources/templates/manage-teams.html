@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html data-th-replace="~{base-centered::centered(data=~{::body}, styles=~{::head})}">
+    <head>
+        <link rel="stylesheet" data-th-href="@{/css/dark-modal.css}" />
+    </head>
+    <body>
+        <h2 class="pb-4 flex-item">Manage teams</h2>
+        <form data-th-action="@{~/teams}" data-th-object="${team}" method="POST" class="flex-item">
+            <div
+                data-th-replace="~{form-elements::validatedInput(
+                    name='name',
+                    type='text',
+                    label='Team name',
+                    placeholder='Some team',
+                    invalidMessage='Invalid team name!',
+                    isValid=${not #fields.hasErrors('name')})}"
+            ></div>
+            <button data-th-replace="~{form-elements::button('Add team')}"></button>
+        </form>
+        <ul class="list-group flex-item mt-3">
+            <li
+                data-th-each="team : ${teams}"
+                class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center"
+            >
+                <div data-th-id="${team.id}">
+                    <span data-th-text="${team.name}"></span>
+                    <button
+                        type="button"
+                        class="ml-2 btn btn-primary"
+                        data-target="#editModal"
+                        data-toggle="modal"
+                    >
+                        Edit
+                    </button>
+                    <button
+                        type="button"
+                        class="ml-2 btn btn-danger"
+                        data-target="#deleteModal"
+                        data-toggle="modal"
+                    >
+                        Delete
+                    </button>
+                </div>
+            </li>
+        </ul>
+
+        <div
+            data-th-replace="~{base-elements::darkModal(
+                ~{::#editModalTitle}, 
+                ~{::#editModalBody}, 
+                ~{::#editModalFooter}, 
+                'editModal')}"
+        >
+            <h5 id="editModalTitle">
+                Team 1
+            </h5>
+            <div id="editModalBody">
+                <div
+                    data-th-replace="base-elements::input(
+                        'text', 
+                        'editTeam', 
+                        'New team name', 
+                        'Some name')"
+                ></div>
+            </div>
+            <div id="editModalFooter">
+                <button class="btn btn-primary">Change team name</button>
+            </div>
+        </div>
+
+        <div
+            data-th-replace="~{base-elements::darkModal(
+                ~{::#deleteModalTitle}, 
+                ~{::#deleteModalBody}, 
+                ~{::#deleteModalFooter}, 
+                'deleteModal')}"
+        >
+            <h5 id="deleteModalTitle">
+                Team 1
+            </h5>
+            <div id="deleteModalBody">
+                Are you sure you want to delete Team 1?
+            </div>
+            <div id="deleteModalFooter">
+                <button type="button" class="ml-2 btn btn-danger">Yes</button>
+            </div>
+        </div>
+    </body>
+</html>
