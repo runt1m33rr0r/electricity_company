@@ -1,2 +1,2 @@
-# Electricity Report System
+# Electricity Company
 
