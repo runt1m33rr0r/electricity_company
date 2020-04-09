@@ -11,10 +11,13 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Where(clause = "is_deleted='false'")
-public class Employee extends BaseEntity {
-    @OneToOne
-    private User user;
+public class CompanyExpenses extends BaseEntity {
+    @Min(0)
+    private double maintenanceSpending;
 
     @Min(0)
-    private double salary;
+    private double salarySpending;
+
+    @Min(0)
+    private double profitTax;
 }
