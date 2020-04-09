@@ -17,7 +17,7 @@
 
         <div data-th-replace="${styles} ?: _"></div>
 
-        <title>Report system</title>
+        <title>Electricity company</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -29,31 +29,22 @@
             >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" data-th-href="@{~/}">Reports</a>
+            <a class="navbar-brand" data-th-href="@{~/}">Company</a>
 
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li data-th-replace="base-elements::navLink(@{~/report}, 'Create report')"></li>
-                    <li
-                        data-th-replace="base-elements::navDropdown(
-                            urls=${ {'/reports', '/team/reports', '/employee/reports', '/employee/assigned'} }, 
-                            names=${ {'All', 'My team reports', 'My reports', 'My assigned reports'} }, 
-                            text='View reports')"
-                    ></li>
                     <li
                         data-th-replace="base-elements::navDropdown(
                             urls=${ {'/clients/register', '/employees/register'} }, 
                             names=${ {'Client', 'Employee'} }, 
                             text='Register')"
                     ></li>
-                    <li data-th-replace="base-elements::navLink(@{~/teams}, 'Manage teams')"></li>
                     <li
                         data-th-replace="base-elements::navLink(@{~/employees}, 'Manage employees')"
                     ></li>
                     <li
                         data-th-replace="base-elements::navLink(@{~/clients}, 'Manage clients')"
                     ></li>
-                    <li data-th-replace="base-elements::navLink(@{~/team}, 'My team')"></li>
                 </ul>
 
                 <ul class="navbar-nav" data-th-if="${loggedIn}">

@@ -1,7 +1,7 @@
 package com.electricity_company.entities;
 
-import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import org.hibernate.annotations.Where;
 import lombok.*;
 
@@ -11,10 +11,10 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Where(clause = "is_deleted='false'")
-public class Client extends BaseEntity {
-    @OneToOne
-    private User user;
+public class Prices extends BaseEntity {
+    @Min(0)
+    private double privateIndividualPrice;
 
-    @OneToMany
-    private List<Measurement> measurements;
+    @Min(0)
+    private double legalEntityPrice;
 }
