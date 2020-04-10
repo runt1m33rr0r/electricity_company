@@ -24,6 +24,9 @@
                     isValid=${not #fields.hasErrors('lastName')},
                     invalidMessage='Last name is invalid!')}"
             ></div>
+
+            <div data-th-replace="${page} ? ${page} : ~{}"></div>
+
             <div
                 data-th-replace="~{form-elements::validatedInput(
                     type='email', 

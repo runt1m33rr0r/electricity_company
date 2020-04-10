@@ -2,9 +2,11 @@ package com.electricity_company.controllers;
 
 import javax.validation.Valid;
 
+import com.electricity_company.controllers.models.EmployeeRegistrationModel;
 import com.electricity_company.controllers.models.UserRegistrationModel;
 import com.electricity_company.services.contracts.IClientsService;
 import com.electricity_company.services.contracts.IEmployeesService;
+import com.electricity_company.services.models.EmployeeServiceModel;
 import com.electricity_company.services.models.UserServiceModel;
 import com.electricity_company.exceptions.InvalidDataException;
 import org.modelmapper.ModelMapper;
@@ -19,33 +21,9 @@ import lombok.AllArgsConstructor;
 @Controller
 @AllArgsConstructor
 public class RegisterController {
-    private interface RegisterAction {
-        public void execute(UserServiceModel serviceModel) throws InvalidDataException;
-    }
-
     private final IClientsService clientsService;
     private final IEmployeesService employeesService;
     private final ModelMapper mapper;
-
-    private String registerUser(Model model, UserRegistrationModel user, BindingResult bindingResult, String template,
-            String successMessage, RegisterAction registerAction) {
-        if (bindingResult.hasErrors()) {
-            return template;
-        }
-
-        UserServiceModel serviceModel = this.mapper.map(user, UserServiceModel.class);
-        try {
-            registerAction.execute(serviceModel);
-        } catch (InvalidDataException e) {
-            model.addAttribute("error", e.getMessage());
-
-            return template;
-        }
-
-        model.addAttribute("success", successMessage);
-
-        return template;
-    }
 
     @GetMapping("/clients/register")
     public String showClientRegister(@ModelAttribute("user") UserRegistrationModel user) {
@@ -53,25 +31,49 @@ public class RegisterController {
     }
 
     @GetMapping("/employees/register")
-    public String showEmployeeRegister(@ModelAttribute("user") UserRegistrationModel user) {
+    public String showEmployeeRegister(@ModelAttribute("user") EmployeeRegistrationModel user) {
         return "register-employee";
     }
 
     @PostMapping("/clients/register")
     public String registerClient(Model model, @Valid @ModelAttribute("user") UserRegistrationModel user,
             BindingResult bindingResult) {
-        return this.registerUser(model, user, bindingResult, "register-client", "Successfully registered!",
-                (serviceModel) -> {
-                    this.clientsService.createClient(serviceModel);
-                });
+        if (bindingResult.hasErrors()) {
+            return "register-client";
+        }
+
+        UserServiceModel serviceModel = this.mapper.map(user, UserServiceModel.class);
+        try {
+            this.clientsService.createClient(serviceModel);
+        } catch (InvalidDataException e) {
+            model.addAttribute("error", e.getMessage());
+
+            return "register-client";
+        }
+
+        model.addAttribute("success", "Successfully registered!");
+
+        return "register-client";
     }
 
     @PostMapping("/employees/register")
-    public String registerEmployee(Model model, @Valid @ModelAttribute("user") UserRegistrationModel user,
+    public String registerEmployee(Model model, @Valid @ModelAttribute("user") EmployeeRegistrationModel user,
             BindingResult bindingResult) {
-        return this.registerUser(model, user, bindingResult, "register-employee", "Successfully registered!",
-                (serviceModel) -> {
-                    this.employeesService.createEmployee(serviceModel);
-                });
+        if (bindingResult.hasErrors()) {
+            return "register-employee";
+        }
+
+        EmployeeServiceModel serviceModel = this.mapper.map(user, EmployeeServiceModel.class);
+        try {
+            this.employeesService.createEmployee(serviceModel);
+        } catch (InvalidDataException e) {
+            model.addAttribute("error", e.getMessage());
+
+            return "register-employee";
+        }
+
+        model.addAttribute("success", "Successfully registered!");
+
+        return "register-employee";
     }
 }

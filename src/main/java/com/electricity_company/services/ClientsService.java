@@ -30,7 +30,16 @@ public class ClientsService implements IClientsService {
 
         this.validator.validate(user);
 
+        if (this.clientsRepository.existsByUserEmail(user.getEmail())) {
+            throw new InvalidDataException("User already exists!");
+        }
+
         User userEntity = this.registrationService.registerUser(user, Arrays.asList("ROLE_CLIENT"));
-        this.clientsRepository.save(new Client(userEntity, null));
+        this.validator.validate(userEntity);
+
+        Client clientEntity = new Client(userEntity, null);
+        validator.validate(clientEntity);
+
+        this.clientsRepository.save(clientEntity);
     }
 }

@@ -8,7 +8,7 @@ import com.electricity_company.repositories.EmployeesRepository;
 import com.electricity_company.services.contracts.IEmployeesService;
 import com.electricity_company.services.contracts.IRegistrationService;
 import com.electricity_company.services.contracts.IValidationService;
-import com.electricity_company.services.models.UserServiceModel;
+import com.electricity_company.services.models.EmployeeServiceModel;
 import com.electricity_company.exceptions.InvalidDataException;
 
 import org.springframework.stereotype.Service;
@@ -23,14 +23,23 @@ public class EmployeesService implements IEmployeesService {
     private final IValidationService validator;
 
     @Override
-    public void createEmployee(UserServiceModel user) throws InvalidDataException {
+    public void createEmployee(EmployeeServiceModel user) throws InvalidDataException {
         if (user == null) {
             throw new InvalidDataException("No user provided!");
         }
 
         this.validator.validate(user);
 
+        if (this.employeesRepository.existsByUserEmail(user.getEmail())) {
+            throw new InvalidDataException("User already exists!");
+        }
+
         User userEntity = this.registrationService.registerUser(user, Arrays.asList("ROLE_EMPLOYEE"));
-        this.employeesRepository.save(new Employee(userEntity, 0));
+        this.validator.validate(userEntity);
+
+        Employee employeeEntity = new Employee(userEntity, user.getSalary());
+        this.validator.validate(employeeEntity);
+
+        this.employeesRepository.save(employeeEntity);
     }
 }
