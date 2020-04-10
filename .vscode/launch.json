@@ -2,16 +2,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-ReportSystemApplication<report_system>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "mainClass": "com.report_system.ReportSystemApplication",
-            "projectName": "report_system",
-            "args": ""
-        },
-        {
-            "type": "java",
             "name": "Spring Boot-ElectricityCompanyApplication<report_system>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
