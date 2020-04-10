@@ -35,11 +35,7 @@ public class ClientsService implements IClientsService {
         }
 
         User userEntity = this.registrationService.registerUser(user, Arrays.asList("ROLE_CLIENT"));
-        this.validator.validate(userEntity);
-
         Client clientEntity = new Client(userEntity, null);
-        validator.validate(clientEntity);
-
         this.clientsRepository.save(clientEntity);
     }
 }

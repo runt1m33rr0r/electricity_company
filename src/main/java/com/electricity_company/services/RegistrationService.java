@@ -45,6 +45,8 @@ public class RegistrationService implements IRegistrationService {
             throw new InvalidDataException("User already exists!");
         }
 
+        this.validator.validate(user);
+
         User userEntity = this.mapper.map(user, User.class);
         this.validator.validate(userEntity);
 

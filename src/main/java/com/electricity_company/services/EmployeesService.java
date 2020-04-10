@@ -35,11 +35,7 @@ public class EmployeesService implements IEmployeesService {
         }
 
         User userEntity = this.registrationService.registerUser(user, Arrays.asList("ROLE_EMPLOYEE"));
-        this.validator.validate(userEntity);
-
         Employee employeeEntity = new Employee(userEntity, user.getSalary());
-        this.validator.validate(employeeEntity);
-
         this.employeesRepository.save(employeeEntity);
     }
 }
