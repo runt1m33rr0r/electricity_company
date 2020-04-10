@@ -10,18 +10,22 @@ body {
     color: #fff;
 }
 
-#content {
+#content,
+#messages {
     padding-top: 56px;
+}
+
+#messages {
+    position: fixed;
 }
 
 .center-flex-item {
     margin: auto;
 }
 
-#notifications {
-    display: block;
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+.message {
+    position: fixed;
+    text-align: center;
+    width: 100%;
     z-index: 1000;
 }

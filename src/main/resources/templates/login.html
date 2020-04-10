@@ -2,20 +2,20 @@
 <html data-th-replace="~{base-centered::centered(data=~{::body})}">
     <body>
         <h2 class="pb-4">Log in</h2>
-        <form action="@{~/login}">
+        <form data-th-object="${user}" action="@{~/login}">
             <div
-                data-th-replace="~{form-elements::input(
-                    inputType='email', 
-                    placeholder='email@example.com', 
-                    label='Email address', 
-                    name='email')}"
+                data-th-replace="~{form-elements::validatedInput(
+                    type='email', 
+                    name='email',
+                    label='Email address',
+                    placeholder='email@example.com')}"
             ></div>
             <div
-                data-th-replace="~{form-elements::input(
-                    inputType='password', 
-                    placeholder='', 
-                    label='Password', 
-                    name='password')}"
+                data-th-replace="~{form-elements::validatedInput(
+                    type='password',
+                    name='password',
+                    label='Password',
+                    placeholder='')}"
             ></div>
             <button data-th-replace="~{form-elements::button('Log in')}"></button>
         </form>

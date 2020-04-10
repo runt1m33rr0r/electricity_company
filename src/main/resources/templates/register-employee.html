@@ -1,4 +1,19 @@
 <!DOCTYPE html>
 <html
-    data-th-replace="~{registration::register(~{}, 'Register an employee', @{~/employees})}"
-></html>
+    data-th-replace="~{registration::register(
+    title='Register an employee', 
+    action=@{~/employees/register},
+    page=~{::body})}"
+>
+    <body>
+        <div
+            data-th-replace="~{form-elements::validatedInput(
+                type='number',
+                name='salary',
+                label='Employee salary',
+                placeholder='30',
+                isValid=${not #fields.hasErrors('salary')},
+                invalidMessage='Salary is invalid!')}"
+        ></div>
+    </body>
+</html>

@@ -30,7 +30,7 @@ public class User extends BaseEntity {
     private String email;
 
     @Column(nullable = false)
-    @Length(min = 3, max = 30)
+    @Length(min = 3)
     @NotEmpty
     private String password;
 
